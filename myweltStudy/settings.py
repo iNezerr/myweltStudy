@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-d2cahs7b&xci8-eu=&tkk&f^8hd-5%&2-5k)@b)6=8$g8okl1x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ebendidthis.pythonanywhere.com']
+ALLOWED_HOSTS = ['ebendidthis.pythonanywhere.com', '127.0.0.1:8000', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -38,8 +38,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-    "base.apps.BaseConfig"
+    "base.apps.BaseConfig",
+
+    'rest_framework',
 ]
+
+AUTH_USER_MODEL = 'base.User'
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -119,10 +123,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
+MEDIA_URL = '/images/'
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+MEDIA_ROOT = BASE_DIR / 'static/images'
 
 STATICFILES_DIRS = [
   BASE_DIR / "static/"

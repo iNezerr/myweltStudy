@@ -21,8 +21,14 @@
         <form class="form" action="" method="POST">
           {% csrf_token %}
 
+
           <div class="form__group">
-            <label for="room_topic">Enter a Topic</label>
+            <label for="room_name">Room Name <i>(Example: "Let's Learn Java!")</i></label>
+            {{form.name}}
+          </div>
+
+          <div class="form__group">
+            <label for="room_topic">Under What Topic <i>(A tag, kind of)</i></label>
             <input required type="text" value="{{room.topic.name}}" name="topic" list="topic-list" />
             <datalist id="topic-list">
               <select id="room_topic">
@@ -33,14 +39,8 @@
             </datalist>
           </div>
 
-
           <div class="form__group">
-            <label for="room_name">Room Name</label>
-            {{form.name}}
-          </div>
-
-          <div class="form__group">
-            <label for="room_description">Room Description</label>
+            <label for="room_description">Room Description <i>(What the room is about?)</i></label>
             {{form.description}}
           </div>
 
